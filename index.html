@@ -4,6 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="S M Nabil Ausaf - CSE Student at DIU, Software Developer skilled in Python, Java, and Flutter. View my projects and experience." />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <meta name="keywords" content="Nabil Ausaf, Portfolio, Software Developer, CSE Student, DIU, Python, Java, Flutter" />
   <meta property="og:title" content="S M Nabil Ausaf — Portfolio" />
   <meta property="og:description" content="CSE student and software developer showcasing projects and skills in web & app development." />
@@ -277,7 +285,13 @@
 
   <footer class="site-footer">
     <div class="container">
-      © <span id="year"></span> S M Nabil Ausaf — Crafted with care
+      <div class="footer-content">
+        <div>© <span id="year"></span> S M Nabil Ausaf — Crafted with care</div>
+        <div class="visitor-counter">
+          <span>Visitors: </span>
+          <img src="https://visitor-badge.laobi.icu/badge?page_id=avengernabil.portfolio" alt="Visitor Count" />
+        </div>
+      </div>
     </div>
   </footer>
 
