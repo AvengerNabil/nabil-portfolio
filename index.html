@@ -290,7 +290,7 @@
         <div class="visitor-stats">
           <div class="visitor-counter">
             <span>Visitors: </span>
-            <img src="https://visitor-badge.laobi.icu/badge?page_id=avengernabil.portfolio" alt="Visitor Count" />
+            <span id="visitor-count">Loading...</span>
           </div>
           <div class="visitor-map">
             <a href="https://info.flagcounter.com/S7QB">
@@ -327,6 +327,32 @@
     }, {threshold: 0.45});
 
     document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
+
+    // Simple visitor counter using CountAPI (https://countapi.xyz)
+    // Namespace/key: avengernabil/portfolio — increments on each page load
+    (function(){
+      const el = document.getElementById('visitor-count');
+      if(!el) return;
+      // Use hit to increment and fetch the current value
+      fetch('https://api.countapi.xyz/hit/avengernabil/portfolio')
+        .then(res => res.json())
+        .then(data => {
+          if(data && typeof data.value !== 'undefined'){
+            el.textContent = data.value.toLocaleString();
+          } else {
+            el.textContent = '0';
+          }
+        })
+        .catch(() => {
+          // On error, fall back to a static badge image
+          el.textContent = '';
+          const img = document.createElement('img');
+          img.src = 'https://visitor-badge.laobi.icu/badge?page_id=avengernabil.portfolio';
+          img.alt = 'Visitor Count';
+          img.style.height = '20px';
+          el.parentNode.appendChild(img);
+        });
+    })();
   </script>
 </body>
 </html>
