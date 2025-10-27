@@ -32,7 +32,7 @@
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
-        <button onclick="alertCV()" class="btn btn-small">Download CV</button>
+        <a href="S_M_Nabil_Ausaf_CV.pdf" download class="btn btn-small">Download CV</a>
       </nav>
     </div>
   </header>
@@ -52,7 +52,7 @@
           <div class="hero-ctas">
             <button class="btn btn-primary" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">View Projects</button>
             <a class="btn btn-secondary" href="#contact">Contact Me</a>
-            <button onclick="alertCV()" class="btn btn-ghost">Download CV</button>
+            <a href="S_M_Nabil_Ausaf_CV.pdf" download class="btn btn-ghost">Download CV</a>
           </div>
         </div>
 
@@ -283,10 +283,6 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    function alertCV() {
-      alert('CV will be available soon. Please check back later or contact me directly.');
-    }
 
     function sendMail(e){
       e.preventDefault();
