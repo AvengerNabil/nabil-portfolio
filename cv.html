@@ -1,0 +1,394 @@
+<!-- Save as index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Reset & base ---------- */
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#7c5cff;
+      --accent-2:#00d4ff;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --maxw:1100px;
+      --gap:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.06), transparent 8%),
+                  radial-gradient(900px 400px at 90% 90%, rgba(0,212,255,0.03), transparent 8%),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:36px 20px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+    }
+
+    /* ---------- Header / Nav ---------- */
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo {
+      width:46px;height:46px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;color:#fff;font-size:18px;box-shadow:0 6px 18px rgba(0,0,0,0.5);
+    }
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+      font-size:15px;
+      padding:8px 12px;border-radius:10px;
+    }
+    nav a:hover{color:#fff;background:var(--glass)}
+    .cta{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#021020;padding:10px 14px;border-radius:12px;font-weight:700;
+      box-shadow:0 6px 20px rgba(124,92,255,0.12);
+      text-decoration:none;
+    }
+
+    /* mobile menu button */
+    .menu-btn{display:none;border:0;background:transparent;color:var(--muted);font-weight:700}
+
+    /* ---------- Hero ---------- */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:var(--gap);
+      align-items:center;
+      margin-bottom:28px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:28px;border-radius:var(--radius);backdrop-filter: blur(6px);
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .hero-left h1{
+      margin:0;font-size:34px;line-height:1.02;
+    }
+    .hero-left p.lead{
+      color:var(--muted);margin-top:14px;margin-bottom:18px;font-size:16px;
+    }
+    .hero-actions{display:flex;gap:12px;align-items:center}
+    .btn-outline{
+      padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);
+      background:transparent;color:#fff;text-decoration:none;font-weight:600;
+    }
+
+    /* profile card */
+    .profile{
+      display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;
+    }
+    .profile .avatar{
+      width:140px;height:140px;border-radius:18px;background:linear-gradient(180deg,#071022, #0b1630);
+      display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:800;color:#fff;
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .profile h3{margin:0}
+    .meta{color:var(--muted);font-size:14px}
+
+    /* ---------- Sections ---------- */
+    .grid-2{
+      display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);
+    }
+    .skills{display:flex;gap:10px;flex-wrap:wrap}
+    .skill{
+      padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.02);font-weight:600;font-size:13px;color:var(--muted)
+    }
+
+    /* projects */
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:16px;
+      margin-top:14px;
+    }
+    .project{
+      padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border:1px solid rgba(255,255,255,0.03);
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .project img{width:100%;height:140px;object-fit:cover;border-radius:10px}
+    .project .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600}
+
+    /* contact */
+    .contact-form{display:flex;flex-direction:column;gap:12px}
+    input,textarea{
+      background:transparent;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;color:#e6eef8;
+      font-family:inherit;font-size:14px;
+    }
+    input::placeholder,textarea::placeholder{color:rgba(230,238,248,0.45)}
+    .submit{padding:12px 14px;border-radius:12px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));font-weight:700;color:#021020}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center;padding:22px 0}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr; }
+      .projects-grid{grid-template-columns: repeat(2,1fr);}
+      nav{display:none}
+      .menu-btn{display:inline-block}
+    }
+    @media (max-width:640px){
+      body{padding:20px}
+      .projects-grid{grid-template-columns:1fr}
+      .hero-left h1{font-size:28px}
+      .logo{width:40px;height:40px;font-size:16px}
+      .profile .avatar{width:120px;height:120px;font-size:42px}
+    }
+
+    /* small visual nicety */
+    .muted{color:var(--muted)}
+    .stretch{flex:1}
+    .row{display:flex;gap:12px;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">YN</div>
+        <div>
+          <div style="font-weight:800">Your Name</div>
+          <div style="font-size:12px;color:var(--muted)">Frontend • UI • Developer</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Hire Me</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn">Menu ▾</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card hero-left">
+          <h1>Hi — I’m <span style="color:var(--accent)">Your Name</span><br><span style="font-weight:500;font-size:18px">Designer & Frontend Developer</span></h1>
+          <p class="lead">I build clean, accessible and high-performance websites and apps. I love thoughtful UI, performance optimizations, and building delightful micro-interactions.</p>
+
+          <div class="hero-actions">
+            <a class="cta" href="#projects">See My Work</a>
+            <a class="btn-outline" href="#contact">Let’s Talk</a>
+          </div>
+
+          <div style="margin-top:22px" class="card">
+            <div class="row">
+              <div style="width:72px;height:72px;border-radius:12px;background:rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center;font-weight:800">★</div>
+              <div>
+                <div style="font-weight:700">Available for freelance</div>
+                <div class="muted" style="font-size:13px">Open to remote & hybrid roles</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card profile">
+          <div class="avatar">YN</div>
+          <h3>Your Name</h3>
+          <div class="meta">Frontend Developer • UI Engineer</div>
+          <div style="display:flex;gap:10px;margin-top:6px">
+            <a class="btn-outline" href="#" style="font-size:13px">Resume</a>
+            <a class="btn-outline" href="#" style="font-size:13px">LinkedIn</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="card">
+        <h2 style="margin-top:0">About</h2>
+        <div class="grid-2" style="align-items:center">
+          <div>
+            <p class="muted">I’m a frontend developer who focuses on performant, accessible, and beautiful UI. I enjoy turning design into delightful, pixel-perfect experiences. My toolset includes modern JS, CSS, and a strong design sense.</p>
+
+            <div style="margin-top:12px">
+              <div class="muted">Skills</div>
+              <div class="skills" style="margin-top:8px">
+                <div class="skill">HTML</div>
+                <div class="skill">CSS / SCSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">React</div>
+                <div class="skill">Next.js</div>
+                <div class="skill">Figma</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="background:linear-gradient(90deg, rgba(124,92,255,0.06), rgba(0,212,255,0.03));padding:14px;border-radius:12px">
+              <div style="font-weight:800">Current</div>
+              <div class="muted" style="margin-top:6px">Working on a design system and e-commerce UI components.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" style="margin-top:18px">
+        <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:10px">
+          <h2 style="margin:0">Selected Projects</h2>
+          <div class="muted">Featured work • Recent</div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop&sat=-20" alt="Project screenshot">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-weight:700">E-commerce UI</div>
+              <div class="muted">React • Next</div>
+            </div>
+            <p class="muted" style="margin:0;font-size:14px">A performant product listing and checkout flow optimized for conversions.</p>
+            <div class="tags">
+              <span class="tag">UI</span><span class="tag">Performance</span><span class="tag">Accessibility</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop&sat=-10" alt="Project screenshot">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-weight:700">Design System</div>
+              <div class="muted">Figma • Tokens</div>
+            </div>
+            <p class="muted" style="margin:0;font-size:14px">A reusable component library and token-based theming system.</p>
+            <div class="tags">
+              <span class="tag">Design</span><span class="tag">Tokens</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop&sat=-15" alt="Project screenshot">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-weight:700">Marketing Site</div>
+              <div class="muted">HTML • CSS</div>
+            </div>
+            <p class="muted" style="margin:0;font-size:14px">Fast landing page with a clear conversion funnel and analytics-ready markup.</p>
+            <div class="tags">
+              <span class="tag">Landing</span><span class="tag">SEO</span>
+            </div>
+          </article>
+
+          <!-- more sample projects -->
+          <article class="project">
+            <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=800&auto=format&fit=crop&sat=-20" alt="Project screenshot">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-weight:700">Analytics Dashboard</div>
+              <div class="muted">React • Charts</div>
+            </div>
+            <p class="muted" style="margin:0;font-size:14px">Interactive charts with fast data fetch patterns and lazy loading.</p>
+            <div class="tags"><span class="tag">Dashboard</span><span class="tag">UX</span></div>
+          </article>
+
+          <article class="project">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop&sat=-10" alt="Project screenshot">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-weight:700">Blog Platform</div>
+              <div class="muted">Next.js</div>
+            </div>
+            <p class="muted" style="margin:0;font-size:14px">A fast, SEO-optimized blog with content previews and tagging.</p>
+            <div class="tags"><span class="tag">Content</span></div>
+          </article>
+
+          <article class="project">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop&sat=-20" alt="Project screenshot">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-weight:700">Mobile App Landing</div>
+              <div class="muted">HTML/CSS</div>
+            </div>
+            <p class="muted" style="margin:0;font-size:14px">Responsive landing with device mockups and feature highlights.</p>
+            <div class="tags"><span class="tag">Mobile</span><span class="tag">Responsive</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:18px" class="card">
+        <h2 style="margin-top:0">Contact</h2>
+        <div style="display:flex;gap:12px;flex-direction:column">
+          <div class="muted">Interested in working together? Send a message — I reply within a few days.</div>
+
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent — replace this with your form handler.');">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" rows="5" placeholder="Brief message" required></textarea>
+            <button class="submit" type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> Your Name — Built with ❤️ • <span class="muted">Made responsive & accessible</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // small helpers: mobile menu + dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    let menuOpen = false;
+    menuBtn && menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if(menuOpen){
+        const menu = document.createElement('div');
+        menu.id = 'mobileMenu';
+        menu.style.position='fixed';
+        menu.style.right='20px';
+        menu.style.top='72px';
+        menu.style.background='rgba(11,18,32,0.96)';
+        menu.style.border='1px solid rgba(255,255,255,0.03)';
+        menu.style.padding='12px';
+        menu.style.borderRadius='12px';
+        menu.style.boxShadow='0 10px 30px rgba(2,6,23,0.6)';
+        menu.innerHTML = '<a href=\"#about\" style=\"display:block;padding:8px;color:var(--muted);text-decoration:none\">About</a><a href=\"#projects\" style=\"display:block;padding:8px;color:var(--muted);text-decoration:none\">Projects</a><a href=\"#contact\" style=\"display:block;padding:8px;color:var(--muted);text-decoration:none\">Contact</a>';
+        document.body.appendChild(menu);
+        menuBtn.textContent = 'Close ▴';
+      } else {
+        const menu = document.getElementById('mobileMenu');
+        menu && menu.remove();
+        menuBtn.textContent = 'Menu ▾';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+/* === THEME / PALETTE === */
+:root{
+  --bg-a: #0f172a;
+  --bg-b: #1e3a8a;
+  --accent-cyan: #22d3ee;
+  --accent-blue: #3b82f6;
+  --accent-purple: #a855f7;
+  --white: #ffffff;
+  --muted: #cbd5e1;
+  --muted-2: #94a3b8;
+  --muted-3: #64748b;
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.10);
+  --glass-hover: rgba(255,255,255,0.10);
+  --radius: 18px;
+  --container-max: 1200px;
+}
+
+/* --- Base / Layout --- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen', 'Ubuntu', sans-serif;
+  background: linear-gradient(135deg, var(--bg-a) 0%, var(--bg-b) 50%, var(--bg-a) 100%);
+  color:var(--white);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  padding:28px 18px;
+}
+
+/* center containers */
+.container{max-width:var(--container-max);margin:0 auto;padding:0 20px;}
+
+/* --- Header --- */
+.site-header{position:sticky;top:12px;z-index:60}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;gap:14px;align-items:center}
+.logo{
+  width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02));
+  color:var(--accent-cyan);font-weight:800;font-size:20px;box-shadow:0 10px 30px rgba(6,182,212,0.06);
+}
+.brand-name{font-weight:700;font-size:16px}
+.brand-sub{color:var(--muted-2);font-size:13px}
+
+/* nav */
+.nav{display:flex;gap:12px;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px;font-weight:600}
+.nav a:hover{background:var(--glass-bg);color:var(--white)}
+.nav a.active{box-shadow: inset 0 -2px 0 rgba(255,255,255,0.06);color:var(--white)}
+.btn-small{background:linear-gradient(90deg,var(--accent-cyan),var(--accent-blue));color:#071029;padding:8px 10px;border-radius:10px}
+
+/* --- Glass card base --- */
+.card{
+  border-radius:var(--radius);
+  border:1px solid var(--glass-border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  backdrop-filter: blur(10px);
+  padding:18px;
+  transition: all 0.3s ease;
+}
+.card:hover{border-color:var(--glass-hover);transform:translateY(-4px);box-shadow: 0 20px 50px rgba(6,182,212,0.06);}
+
+/* --- HERO --- */
+.hero-inner{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;padding:64px 0 40px}
+.hero-h1{
+  margin:0 0 12px 0;
+  font-weight:700;
+  font-size: clamp(2.5rem, 8vw, 4rem); /* 40px -> 80px */
+  line-height:1.02;
+  letter-spacing:-0.02em;
+}
+.hero-h2{
+  margin:0 0 18px 0;
+  font-weight:600;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color:var(--muted);
+}
+.hero-lead{color:var(--muted);max-width:70ch}
+
+.hero-ctas{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.btn{
+  border:0;padding:12px 18px;border-radius:12px;font-weight:600;cursor:pointer;transition:all 0.3s ease;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary{background:linear-gradient(90deg,var(--accent-cyan),var(--accent-blue));color:#071029;box-shadow:0 8px 24px rgba(6,182,212,0.18)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(6,182,212,0.28)}
+.btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+
+/* hero right profile */
+.hero-right{display:flex;flex-direction:column;align-items:center;gap:12px}
+.avatar{
+  width:120px;height:120px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:36px;
+  background:linear-gradient(180deg, rgba(6,182,212,0.06), rgba(59,130,246,0.04));
+  box-shadow: 0 20px 60px rgba(6,182,212,0.12);
+}
+.profile-name{font-weight:700;margin-top:4px}
+.profile-role{color:var(--muted-2);font-size:13px}
+
+/* profile meta */
+.profile-meta{width:100%;margin-top:12px}
+.meta-row{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid rgba(255,255,255,0.02)}
+.meta-row:first-of-type{border-top:0}
+.socials{display:flex;gap:8px;margin-top:12px}
+.social-link{
+  padding:8px 10px;border-radius:10px;text-decoration:none;color:var(--muted);
+  background:transparent;border:1px solid rgba(255,255,255,0.02);transition:all .3s ease;display:inline-block;font-weight:600;
+}
+.social-link:hover{transform:rotate(5deg) scale(1.06);background:rgba(34,211,238,0.06);color:var(--white)}
+
+/* --- SECTIONS --- */
+.section{padding:80px 0}
+.section-title{font-size: clamp(2rem, 5vw, 3rem);margin:0 0 18px 0;font-weight:700; background:linear-gradient(90deg,var(--accent-cyan),var(--accent-blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+
+/* ABOUT GRID */
+.about-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+.badges .badge-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:12px}
+.badge{padding:12px;border-radius:999px;border:1px solid rgba(34,211,238,0.12);background:transparent;color:var(--muted);font-weight:600}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px}
+.skill-card{display:flex;align-items:center;justify-content:center;padding:20px;font-weight:700;color:var(--muted);}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}
+.project-card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+.project-card .project-top{
+  position:absolute;left:0;right:0;top:0;height:4px;
+  background:linear-gradient(90deg,var(--accent-cyan),var(--accent-blue));
+}
+.project-card h4{margin:10px 0 0 0}
+.project-card p{color:var(--muted);margin:0}
+.project-features{margin:8px 0 0 0;padding-left:18px;color:var(--muted)}
+.project-actions{margin-top:auto;display:flex;gap:8px}
+
+/* EXPERIENCE */
+.experience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.experience-card{padding:16px}
+.exp-title{font-weight:700}
+.exp-sub{color:var(--muted-2);font-size:13px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+.contact-form label{display:block;margin-bottom:12px}
+.contact-form .label{display:block;margin-bottom:6px;color:var(--muted-2);font-weight:600}
+.contact-form input, .contact-form textarea{
+  width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:var(--white);
+  outline:none;transition:all .18s ease;
+}
+.contact-form input:focus, .contact-form textarea:focus{box-shadow:0 6px 20px rgba(6,182,212,0.08);border-color:rgba(34,211,238,0.2)}
+
+/* contact info */
+.contact-info .contact-item{padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);margin-bottom:12px}
+
+/* footer */
+.site-footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(30px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+.fade-in-up{animation: fadeInUp 0.6s ease-out both}
+
+/* Hover transforms specified in your spec (subtle variations applied above) */
+
+/* Gradient text utilities */
+.gradient-text-hero{
+  background: linear-gradient(90deg, #ffffff, var(--accent-cyan), var(--accent-blue));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.gradient-text-sub{
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .hero-inner, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .header-inner { flex-direction:column; align-items:flex-start; gap:14px; }
+  .nav{flex-wrap:wrap}
+  .hero-right{order:2}
+  .hero-left{order:1}
+  .logo{width:48px;height:48px}
+  .avatar{width:100px;height:100px}
+}
