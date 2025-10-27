@@ -41,7 +41,14 @@ body{
 .logo{
   width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;
   background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02));
-  color:var(--accent-cyan);font-weight:800;font-size:20px;box-shadow:0 10px 30px rgba(6,182,212,0.06);
+  box-shadow:0 10px 30px rgba(6,182,212,0.06);
+  overflow:hidden;
+}
+.logo-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:inherit;
 }
 .brand-name{font-weight:700;font-size:16px}
 .brand-sub{color:var(--muted-2);font-size:13px}
