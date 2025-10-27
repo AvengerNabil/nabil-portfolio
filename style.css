@@ -171,55 +171,7 @@ body{
 .hobby-name{font-weight:700;color:var(--muted)}
 
 /* footer */
-.site-footer{padding:28px 0;color:var(--muted);font-size:14px}
-.footer-content{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:12px;
-  text-align:center;
-}
-.visitor-stats {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.visitor-counter {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 8px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-}
-
-.visitor-counter img {
-  height: 20px;
-  border-radius: 4px;
-}
-
-.visitor-map {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 15px;
-  border-radius: var(--radius);
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-}
-
-.map-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
+.site-footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
 
 /* --- ANIMATIONS --- */
 @keyframes fadeInUp {

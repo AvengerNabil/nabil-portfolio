@@ -4,14 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="S M Nabil Ausaf - CSE Student at DIU, Software Developer skilled in Python, Java, and Flutter. View my projects and experience." />
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
   <meta name="keywords" content="Nabil Ausaf, Portfolio, Software Developer, CSE Student, DIU, Python, Java, Flutter" />
   <meta property="og:title" content="S M Nabil Ausaf — Portfolio" />
   <meta property="og:description" content="CSE student and software developer showcasing projects and skills in web & app development." />
@@ -104,7 +96,7 @@
       <div class="about-right card glass badges">
         <h3 class="section-title">Quick Facts</h3>
         <div class="badge-grid">
-          <div class="badge">2 yrs Tuition Teaching</div>
+          <div class="badge">2 years of Tuition Teaching</div>
           <div class="badge">Executive — CPC</div>
           <div class="badge">Training and Workshop Coordinator— DIU Speakers Club</div>
           <div class="badge">Languages: Bangla • English • Hindi</div>
@@ -285,21 +277,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
-        <div>© <span id="year"></span> S M Nabil Ausaf</div>
-        <div class="visitor-stats">
-          <div class="visitor-counter">
-            <span>Visitors: </span>
-            <span id="visitor-count">Loading...</span>
-          </div>
-          <div class="visitor-map">
-            <a href="https://info.flagcounter.com/S7QB">
-              <img src="https://s11.flagcounter.com/map/S7QB/size_l/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" 
-                   alt="Visitor Map" class="map-image" />
-            </a>
-          </div>
-        </div>
-      </div>
+      © <span id="year"></span> Crafted by S M Nabil Ausaf
     </div>
   </footer>
 
@@ -327,32 +305,6 @@
     }, {threshold: 0.45});
 
     document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
-
-    // Simple visitor counter using CountAPI (https://countapi.xyz)
-    // Namespace/key: avengernabil/portfolio — increments on each page load
-    (function(){
-      const el = document.getElementById('visitor-count');
-      if(!el) return;
-      // Use hit to increment and fetch the current value
-      fetch('https://api.countapi.xyz/hit/avengernabil/portfolio')
-        .then(res => res.json())
-        .then(data => {
-          if(data && typeof data.value !== 'undefined'){
-            el.textContent = data.value.toLocaleString();
-          } else {
-            el.textContent = '0';
-          }
-        })
-        .catch(() => {
-          // On error, fall back to a static badge image
-          el.textContent = '';
-          const img = document.createElement('img');
-          img.src = 'https://visitor-badge.laobi.icu/badge?page_id=avengernabil.portfolio';
-          img.alt = 'Visitor Count';
-          img.style.height = '20px';
-          el.parentNode.appendChild(img);
-        });
-    })();
   </script>
 </body>
 </html>
